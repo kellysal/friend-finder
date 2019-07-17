@@ -1,4 +1,4 @@
-var friendsArr = [
+var friends = [
     {
         "name": "Carrie",
         "photo": "https://media.glamour.com/photos/5c449a70cd8ee42d78c8f7a6/16:9/w_1280%2Cc_limit/sarah-jessica-parker-carrie-bradshaw.jpg",
@@ -67,4 +67,4 @@ var friendsArr = [
 
 
 
-module.exports = friendsArr;
+module.exports = friends;

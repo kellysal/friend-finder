@@ -17,7 +17,7 @@ module.exports = function (app) {
         res.sendFile(path.join(__dirname, "../public/survey.html"));
     });
 
-    //catch if no route
+    //redirect home if no route found
     app.get("*", function (req, res) {
         res.sendFile(path.join(__dirname, "../public/home.html"));
     });

@@ -18,33 +18,35 @@ module.exports = function (app) {
         // console.log("Posting...");
         //push
         friends.push(req.body);
-        res.json(findMatch(req.body, friends));
+        res.json(friendMatch(req.body, friends));
     });
 
-    function findMatch(newFriend, friends) {
-        let bestFriend = req.body;
-        //console.log(bestFriend);
-        let lowestDifference = 50;
+    function friendMatch(newFriend, friends) {
+        let bestMatch = req.body;
+        //console.log(bestMatch);
+        let smallestDiff = 50;
 
         friends.forEach(friend => {
-            let currDifference = findScoreDifference(friend, newFriend);
-            if (currDifference < lowestDifference) {
-                bestFriend = friend;
-                lowestDifference = currDifference;
+            let currentDiff = compareScoreDiff(friend, newFriend);
+            if (currentDiff < smallestDiff) {
+                bestMatch = friend;
+                smallestDiff = currentDiff;
             }
         });
-        return bestFriend;
+        return bestMatch;
     }
 
     //array of scores
     //calculate difference of elements between two arrays and sums up the difference
     //difference between user and new friend
-    function findScoresDifference(friend1, friend2) {
+    function compareScoreDiff(firstfriend, secondfriend) {
         let totalDiff = 0;
+
         for (let i = 0; i < 10; i++) {
-            totalDiff += Math.abs(friend1.scores[i] - friend2.scores[i]);
+            totalDiff += Math.abs(firstfriend.scores[i] - secondfriend.scores[i]);
         };
         return totalDiff;
+        //console.log(totalDiff);
     }
 
 };

@@ -22,9 +22,6 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
 
-    <!-- STYLES -->
-    <link rel="stylesheet" href="./style.css" type="text/css">
-
     <!-- FONT AWESOME -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
 
@@ -216,22 +213,23 @@
                 return isValid;
             }
 
-            //if data is valid then will post it
+            //if data is valid then app will post friend
             if (validate()) {
                 var score = [$("#q1").val().trim(), $("#q2").val().trim(), $("#q3").val().trim(), $("#q4").val().trim(), $("#q5").val().trim(), $("#q6").val().trim(), $("#q7").val().trim(), $("#q8").val().trim(), $("#q9").val().trim(), $("#q10").val().trim()];
-                var newFriend = {
+
+                let newFriend = {
                     name: $("#name").val(),
                     photo: $("#photo").val(),
                     scores: score
                 };
-                console.log(newFriend);
+                //console.log(newFriend);
 
                 $.ajax({
                     type: 'POST',
                     data: newFriend,
                     url: "/api/friends",
                     success: function (res) {
-                        console.log(res);
+                        //console.log(res);
 
                         alert("Your information was added!");
 
