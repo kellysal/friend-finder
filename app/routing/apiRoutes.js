@@ -1,5 +1,5 @@
 // Dependencies
-const friends = require("../data/friends.js");
+const friends = require("../data/friends");
 const express = require("express");
 const bodyParser = require("body-parser");
 
