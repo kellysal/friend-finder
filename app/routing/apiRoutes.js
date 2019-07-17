@@ -3,15 +3,15 @@ const friends = require("../data/friends");
 const express = require("express");
 const bodyParser = require("body-parser");
 
-const apirouter = express.Router();
+const app = express.Router();
 
 //json for current friends list
-apirouter.get("/api/friends", function (req, res) {
+app.get("/api/friends", function (req, res) {
     res.json(friends);
 })
 
 //posting a new user and returning a match
-apirouter.post("/api/friends", function (req, res) {
+app.post("/api/friends", function (req, res) {
     console.log("Posting...");
 
     var newFriend = req.body;
@@ -85,4 +85,4 @@ apirouter.post("/api/friends", function (req, res) {
 })
 
 //Export API routes for other files to use
-module.exports = apirouter;
+module.exports = app;
