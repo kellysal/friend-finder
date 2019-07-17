@@ -2,7 +2,7 @@ var friends = [
     {
         "name": "Carrie",
         "photo": "https://media.glamour.com/photos/5c449a70cd8ee42d78c8f7a6/16:9/w_1280%2Cc_limit/sarah-jessica-parker-carrie-bradshaw.jpg",
-        "scores[]": [
+        "scores": [
             1,
             1,
             1,
@@ -18,7 +18,7 @@ var friends = [
     {
         "name": "Samantha",
         "photo": "https://hips.hearstapps.com/hbz.h-cdn.co/assets/16/48/hbz-samantha-jones-32-shutterstock.jpg?crop=1.0xw:1xh;center,top&resize=980:*",
-        "scores[]": [
+        "scores": [
             2,
             2,
             2,
@@ -34,7 +34,7 @@ var friends = [
     {
         "name": "Miranda",
         "photo": "http://www2.pictures.zimbio.com/mp/hvo0yvbkNLAl.jpg",
-        "scores[]": [
+        "scores": [
             3,
             3,
             3,
@@ -50,7 +50,7 @@ var friends = [
     {
         "name": "Charlotte",
         "photo": "https://i.pinimg.com/originals/71/74/25/7174256e73a6ea07423518eb8b6de93f.jpg",
-        "scores[]": [
+        "scores": [
             4,
             4,
             4,

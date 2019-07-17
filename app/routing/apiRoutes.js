@@ -22,12 +22,13 @@ module.exports = function (app) {
     });
 
     function friendMatch(newFriend, friends) {
-        let bestMatch = req.body;
+        let bestMatch;
         //console.log(bestMatch);
         let smallestDiff = 50;
 
         friends.forEach(friend => {
             let currentDiff = compareScoreDiff(friend, newFriend);
+
             if (currentDiff < smallestDiff) {
                 bestMatch = friend;
                 smallestDiff = currentDiff;
@@ -39,11 +40,11 @@ module.exports = function (app) {
     //array of scores
     //calculate difference of elements between two arrays and sums up the difference
     //difference between user and new friend
-    function compareScoreDiff(firstfriend, secondfriend) {
+    function compareScoreDiff(friendA, friendB) {
         let totalDiff = 0;
 
         for (let i = 0; i < 10; i++) {
-            totalDiff += Math.abs(firstfriend.scores[i] - secondfriend.scores[i]);
+            totalDiff += Math.abs(friendA.scores[i] - friendB.scores[i]);
         };
         return totalDiff;
         //console.log(totalDiff);

@@ -182,9 +182,9 @@
                     <h2 class="modal-title"><strong>Best Match</strong></h2>
                 </div>
 
-                <div class="modal-body">
+                <div class="modal-body" id="match-img">
                     <h2 id="match-name"></h2>
-                    <img id="match-img" height="200" alt="">
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -198,51 +198,48 @@
         $(".btn").on("click", function (event) {
             event.preventDefault();
 
-            function validate() {
-                var isValid = true;
-                $(".form-control").each(function () {
-                    if ($(this).val() === "" || $(this).val() === null) {
-                        isValid = false;
-                    }
-                });
-                $(".chosen-select").each(function () {
-                    if ($(this).val() === null || $(this).val() === "") {
-                        isValid = false;
-                    }
-                })
-                return isValid;
-            }
+            // function validate() {
+            //     var isValid = true;
+            //     $(".form-control").each(function () {
+            //         if ($(this).val() === "" || $(this).val() === null) {
+            //             isValid = false;
+            //         }
+            //     });
+            //     $(".chosen-select").each(function () {
+            //         if ($(this).val() === null || $(this).val() === "") {
+            //             isValid = false;
+            //         }
+            //     })
+            //     return isValid;
+            // }
 
             //if data is valid then app will post friend
-            if (validate()) {
-                var score = [$("#q1").val().trim(), $("#q2").val().trim(), $("#q3").val().trim(), $("#q4").val().trim(), $("#q5").val().trim(), $("#q6").val().trim(), $("#q7").val().trim(), $("#q8").val().trim(), $("#q9").val().trim(), $("#q10").val().trim()];
+            // if (validate()) {
+            // var score = 
 
-                let surveyResult = {
-                    name: $("#name").val(),
-                    photo: $("#photo").val(),
-                    scores: score
-                };
-                //console.log(surveyResult);
+            let surveyResult = {
+                name: $("#name").val().trim(),
+                photo: $("#photo").val().trim(),
+                scores: [$("#q1").val().trim(), $("#q2").val().trim(), $("#q3").val().trim(), $("#q4").val().trim(), $("#q5").val().trim(), $("#q6").val().trim(), $("#q7").val().trim(), $("#q8").val().trim(), $("#q9").val().trim(), $("#q10").val().trim()]
+            };
+            console.log(surveyResult);
 
-                $.ajax({
-                    type: 'POST',
-                    data: surveyResult,
-                    url: "/api/friends",
-                    success: function (res) {
-                        //console.log(res);
+            $.post("/api/friends", surveyResult,
 
-                        alert("Your information was added!");
+                function (data) {
+                    console.log(data);
 
-                        $("#match-name").text(res.name);
-                        $("#match-img").attr("src", res.photo);
+                    alert("Your information was added! Calculating Results");
 
-                        // $("#results-modal").modal("toggle"); //starts modal
-                    }
-                })
-            }
-            else {
-                alert("Please complete the form!");
-            }
+                    $("#match-name").text(data.name);
+                    //$("#match-img").attr("src", data.photo);
+                    $("#match-img").append(`<img class="image" height="200" src="${data.photo}"/>`);
+
+                    // $("#results-modal").modal("toggle"); //starts modal
+                });
+            // else {
+            // alert("Please complete the form!");
+            //}
         });
     </script>
 
