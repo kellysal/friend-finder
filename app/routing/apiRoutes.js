@@ -1,9 +1,9 @@
 // Dependencies
 const friends = require("../data/friends");
-const express = require("express");
-const bodyParser = require("body-parser");
+//const express = require("express");
+//const bodyParser = require("body-parser");
 
-const app = express.Router();
+//const app = express.Router();
 
 //json for current friends list
 app.get("/api/friends", function (req, res) {
